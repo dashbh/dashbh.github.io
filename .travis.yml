@@ -1,0 +1,36 @@
+os: linux
+language: node_js
+node_js:
+  - 12.16
+dist: trusty
+
+branches:
+  only:
+  - develop
+
+cache:
+  directories:
+    - node_modules
+    - build
+
+jobs:
+  include:
+    # - stage: Lint
+    #   script: yarn lint
+    - stage: Test
+      script: yarn test
+    - stage: Build
+      script: yarn build
+    - stage: Deploy
+      script: echo 'www.bpdash.com' > ./build/CNAME
+      deploy:
+        provider: pages
+        skip_cleanup: true,
+        local_dir: ./build
+        target-branch: master
+        github-token: $GITHUB_TOKEN
+        on:
+          branch: develop
+
+notifications:
+  email: false
