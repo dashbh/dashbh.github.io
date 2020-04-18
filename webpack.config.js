@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => ({
     entry: {
@@ -10,8 +11,7 @@ module.exports = (env, argv) => ({
     output: {
         path: path.join(__dirname, "build/"),
         filename: '[name].[hash:8].js',
-        chunkFilename: '[id].[hash:8].js',
-        publicPath: path.join(__dirname, "public/"),
+        chunkFilename: '[id].[hash:8].js'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.ts', '.scss'],
@@ -50,8 +50,10 @@ module.exports = (env, argv) => ({
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            favicon: "./public/favicon.png",
-            manifest: "./public/manifest.json"
-        })
+            favicon: "./public/favicon.png"
+        }),
+        new CopyWebpackPlugin([
+            { from: 'public', to: './' }
+        ])
     ]
 });
