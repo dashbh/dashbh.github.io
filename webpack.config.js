@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 module.exports = (env, argv) => ({
     entry: {
@@ -54,6 +55,7 @@ module.exports = (env, argv) => ({
         }),
         new CopyWebpackPlugin([
             { from: 'public', to: './' }
-        ])
+        ]),
+        new OfflinePlugin()
     ]
 });
