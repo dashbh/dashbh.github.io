@@ -22,7 +22,7 @@ export default function LogoAvatar() {
 
   return (
     <div className={classes.root}>
-      <Avatar alt="Bhabani Prasad Dash" src="/avatar.jpg" className={classes.large} />
+      <Avatar alt="Bhabani Prasad Dash" src="/avatar.png" className={classes.large} />
     </div>
   );
 }
