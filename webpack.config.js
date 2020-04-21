@@ -33,14 +33,9 @@ module.exports = (env, argv) => ({
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: false,
+            name: 'vendor',
         },
-        // Keep the runtime chunk separated to enable long term caching
-        // https://twitter.com/wSokra/status/969679223278505985
-        // https://github.com/facebook/create-react-app/issues/5358
-        runtimeChunk: {
-            name: entrypoint => `runtime-${entrypoint.name}`,
-        },
+        runtimeChunk: true,
         minimize: true,
         minimizer: [
             new TerserPlugin({
@@ -57,6 +52,7 @@ module.exports = (env, argv) => ({
             { from: 'public/assets', to: './' }
         ]),
         new WorkboxPlugin.GenerateSW({
+            swDest: 'sw.js',
             clientsClaim: true,
             skipWaiting: true
         })
