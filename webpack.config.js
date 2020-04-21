@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = (env, argv) => ({
     entry: {
@@ -31,14 +31,15 @@ module.exports = (env, argv) => ({
         port: 3000
     },
     optimization: {
-        runtimeChunk: 'single',
         splitChunks: {
             chunks: 'all',
-            cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/
-                }
-            }
+            name: false,
+        },
+        // Keep the runtime chunk separated to enable long term caching
+        // https://twitter.com/wSokra/status/969679223278505985
+        // https://github.com/facebook/create-react-app/issues/5358
+        runtimeChunk: {
+            name: entrypoint => `runtime-${entrypoint.name}`,
         },
         minimize: true,
         minimizer: [
@@ -53,8 +54,11 @@ module.exports = (env, argv) => ({
             template: './public/index.html'
         }),
         new CopyWebpackPlugin([
-            { from: 'public', to: './' }
+            { from: 'public/assets', to: './' }
         ]),
-        new OfflinePlugin()
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
     ]
 });

@@ -12,6 +12,20 @@ const theme = createMuiTheme({
     background: {
       default: "#fff"
     }
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   }
 });
 
@@ -41,7 +55,7 @@ class App extends React.Component {
                   direction="column"
                   alignItems="center"
                   justify="center" item xs={12} sm={6} spacing={3}>
-                  <Typography variant="h6" style={{ textAlign: 'center' }}>
+                  <Typography variant="subtitle1" style={{ textAlign: 'center' }}>
                     I'm a full-stack developer working in Bangalore.
                     <br />
                     I work with React, Angular, Node.js etc.
