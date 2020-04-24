@@ -7,8 +7,8 @@
   "author": "Bhabani Prasad Dash <bhabani.dash@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --mode development",
-    "build": "webpack",
+    "start": "webpack-dev-server --hot --inline --env=dev",
+    "build": "webpack --env=prod",
     "lint": "eslint \"./src/**/*\"",
     "lint:fix": "eslint src/**/* --fix",
     "test": "jest",
@@ -60,6 +60,7 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "^5.1.2"
   }
 }
