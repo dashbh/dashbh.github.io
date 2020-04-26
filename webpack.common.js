@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = env => {
+    const isEnvProduction = webpackEnv === 'production'; 
     console.log('NODE_ENV: ', process.env.NODE_ENV);
     return {
         entry: {
@@ -12,8 +13,8 @@ module.exports = env => {
         },
         output: {
             path: path.join(__dirname, './build'),
-            filename: '[name].[hash:8].js',
-            chunkFilename: '[id].[hash:8].js'
+            filename: isEnvProduction ? '[name].[contenthash:8].js' : '[name].[hash:8].js',
+            chunkFilename: isEnvProduction ? '[name].[contenthash:8].js' : '[name].[hash:8].js'
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js', '.ts', '.scss'],
