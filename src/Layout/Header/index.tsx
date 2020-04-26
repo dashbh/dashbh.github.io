@@ -25,7 +25,7 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar elevation={0} color="transparent" position="static">
                 <Toolbar>
-                    <img src="./logo.svg" width="50" alt="Logo" />
+                    <img src="./logo.png" width="50" alt="Logo" />
                     &nbsp;&nbsp;
                     <Typography variant="subtitle1" className={classes.title}>
                         Bhabani Prasad Dash
