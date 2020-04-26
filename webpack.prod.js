@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const common = require('./webpack.common.js')();
+const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
