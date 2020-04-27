@@ -16,15 +16,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
   <link rel="manifest" href="./manifest.json" />
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) -->
   <script rel="preconnect" async src="https://www.googletagmanager.com/gtag/js?id=UA-129226125-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
 
-    gtag('config', 'UA-129226125-1');
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-129226125-1', 'auto');
+    ga('send', 'pageview');
   </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>

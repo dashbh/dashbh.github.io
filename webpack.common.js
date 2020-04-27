@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = env => {
-    const isEnvProduction = webpackEnv === 'production'; 
+    const isEnvProduction = process.env.NODE_ENV === 'production'; 
     console.log('NODE_ENV: ', process.env.NODE_ENV);
     return {
         entry: {
@@ -28,7 +29,7 @@ module.exports = env => {
                 },
                 {
                     test: /\.scss?$/, use: [
-                        'style-loader',
+                        isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
                         'css-loader',
                         'sass-loader'
                     ]
