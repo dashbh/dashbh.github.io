@@ -12,6 +12,6 @@
   "start_url": "https://www.bpdash.com",
   "scope": "https://www.bpdash.com",
   "display": "standalone",
-  "theme_color": "#77BC3F",
-  "background_color": "#77BC3F"
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3"
 }
