@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -25,6 +26,11 @@ const useStyles = makeStyles((theme: Theme) =>
         myHeader: {
             flexGrow: 1
         },
+        homeLink: {
+            color: theme.palette.common.black,
+            background: 'none',
+            textDecoration: 'none'
+        },
         title: {
             fontSize: '1rem',
             textTransform: 'uppercase',
@@ -43,14 +49,19 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar elevation={0} color="transparent" position="static">
                 <Toolbar>
-                    <img className={classes.logo} src="./logo.svg" width="50" alt="Logo" />
+                    <Link to="/">
+                        <img className={classes.logo} src="./logo.svg" width="50" alt="Logo" />
+                    </Link>
+
                     <div className={classes.myHeader}>
-                        <Typography variant="subtitle1" className={classes.title}>
-                            Bhabani Prasad Dash
+                        <Link to="/" className={classes.homeLink}>
+                            <Typography variant="subtitle1" className={classes.title}>
+                                Bhabani Prasad Dash
                         </Typography>
-                        <Typography variant="caption" className={classes.subTitle}>
-                            &lt;JavaScript Engineer /&gt;
+                            <Typography variant="caption" className={classes.subTitle}>
+                                &lt;JavaScript Engineer /&gt;
                         </Typography>
+                        </Link>
                     </div>
                 </Toolbar>
             </AppBar>

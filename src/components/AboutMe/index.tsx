@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       textAlign: 'center'
     },
+    titleStart: {
+      fontSize: '5rem',
+      lineHeight: '5rem'
+    },
     title: {
       fontSize: '5rem'
     },
@@ -29,9 +33,9 @@ export default function AboutMe() {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.title} variant="h1">
-        I'M BHABANI
-      </Typography>
+      <Typography className={classes.titleStart} variant="h1">I'M</Typography>
+      <Typography className={classes.title} variant="h1">BHABANI</Typography>
+
       <Typography variant="subtitle1" className={classes.subTitle}>
         A Creative Full-Stack Engineer based in Bangalore.<br />
         I currently work as a Senior Technical Associate in <i className={classes.company}>Publicis Sapient</i>.<br/>

@@ -14,6 +14,7 @@ module.exports = env => {
         },
         output: {
             path: path.join(__dirname, './build'),
+            publicPath: '/',
             filename: isEnvProduction ? '[name].[contenthash:8].js' : '[name].[hash:8].js',
             chunkFilename: isEnvProduction ? '[name].[contenthash:8].js' : '[name].[hash:8].js'
         },
