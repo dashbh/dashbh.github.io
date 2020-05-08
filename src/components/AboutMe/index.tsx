@@ -30,7 +30,7 @@ export default function AboutMe() {
         I'M BHABANI
       </Typography>
       <Typography variant="subtitle1" className={classes.subTitle}>
-        A creative Full-Stack Engineer based out of Bangalore.<br />
+        A Creative Full-Stack Engineer based in Bangalore.<br />
         I currently work as a Senior Technical Associate in <i className={classes.company}>Publicis Sapient</i>.<br/>
         My technical proficiency includes
         <b className={classes.techStack}> React, Angular, Node.js, Express... </b>

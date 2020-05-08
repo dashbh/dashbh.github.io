@@ -49,7 +49,7 @@ export default function Header() {
                             Bhabani Prasad Dash
                         </Typography>
                         <Typography variant="caption" className={classes.subTitle}>
-                            &lt; JavaScript Engineer /&gt;
+                            &lt;JavaScript Engineer /&gt;
                         </Typography>
                     </div>
                 </Toolbar>

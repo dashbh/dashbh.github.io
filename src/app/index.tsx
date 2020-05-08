@@ -1,18 +1,23 @@
 import * as React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { MuiThemeProvider, Grid } from '@material-ui/core';
+import { MuiThemeProvider, Grid, StylesProvider, createGenerateClassName } from '@material-ui/core';
 
 import Header from '../components/Header';
-import MyAvatar from '../components/MyAvatar';
 import theme from './theme';
 import AboutMe from '../components/AboutMe';
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: Math.random().toString(36).substring(6), // Generate random string
+  disableGlobal: true
+});
 
 class App extends React.Component {
   public render() {
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
+          <StylesProvider generateClassName={generateClassName}>
           <CssBaseline />
           <Header />
           <Container component="main" >
@@ -39,6 +44,7 @@ class App extends React.Component {
               </Grid>
             </div>
           </Container>
+          </StylesProvider>
         </MuiThemeProvider>
       </React.Fragment>
     );
