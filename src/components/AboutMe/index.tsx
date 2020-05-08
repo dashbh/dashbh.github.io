@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       textAlign: 'center'
     },
+    title: {
+      fontSize: '5rem'
+    },
     subTitle: {
       fontWeight: 300,
       lineHeight: '1.5rem'
@@ -26,7 +29,7 @@ export default function AboutMe() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h1">
+      <Typography className={classes.title} variant="h1">
         I'M BHABANI
       </Typography>
       <Typography variant="subtitle1" className={classes.subTitle}>
